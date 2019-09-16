@@ -1,0 +1,11 @@
+<h1>Listing feeds</h1>
+
+<div id="feed-form">
+  <%= link_to 'New feed', new_feed_path, remote: true %>
+</div>
+
+<div class="container-fluid">
+  <div class="row" id="feeds_container">
+    <%= render @feeds %>
+  </div>
+</div>

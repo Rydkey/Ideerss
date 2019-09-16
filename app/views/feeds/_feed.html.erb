@@ -1,0 +1,8 @@
+<div class="col-lg-4">
+  <h2><a href="<%= feed.url %>"><%= feed.title %></a></h2>
+  <div class="scroll_feed">
+    <div class="list-group">
+      <%= render feed.items.order(pub_date: :desc) %>
+    </div>
+  </div>
+</div>
