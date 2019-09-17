@@ -2,14 +2,12 @@ require 'rss'
 
 class FeedsController < ApplicationController
 
-
   def index
     @feeds = Feed.all
   end
 
   def new
     @feed = Feed.new
-
   end
 
   def create
@@ -51,7 +49,7 @@ class FeedsController < ApplicationController
   private
 
   def feed_params
-    params.require(:feed).permit(:title, :url, :description, :link, :last_pub_date)
+    params.require(:feed).permit(:title, :url, :description)
   end
 
   def init_feed_from_url
@@ -59,8 +57,6 @@ class FeedsController < ApplicationController
     open(url) do |rss|
       feed = RSS::Parser.parse(rss)
       @feed.description = feed.channel.description
-      @feed.link = feed.channel.link
-      @feed.last_pub_date = rss.last_modified
     end
   end
 
@@ -69,9 +65,11 @@ class FeedsController < ApplicationController
     open(url) do |rss|
       feed = RSS::Parser.parse(rss)
       if refresh
-        feed.items.select { |e| e.pubDate > @feed.updated_at }
+        items = feed.items.select { |e| e.pubDate > @feed.updated_at }
+      else
+        items = feed.items
       end
-      feed.items.each do |item|
+      items.each do |item|
         @item = Item.new
         @item.read = false
         @item.feed = @feed
@@ -83,5 +81,4 @@ class FeedsController < ApplicationController
       end
     end
   end
-
 end

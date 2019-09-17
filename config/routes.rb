@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :articles do
-    resources :comments
-  end
-
   resources :feeds do
     resources :items, only: [:show, :set_to_read]
   end
@@ -12,5 +8,5 @@ Rails.application.routes.draw do
   get '/items/:id/set_to_read', to: 'items#set_to_read', as: 'read_button'
   get '/feeds/:id/refresh', to: 'feeds#refresh', as: 'refresh_button'
 
-  root 'welcome#index'
+  root 'feeds#index'
 end

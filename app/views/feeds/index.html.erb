@@ -6,6 +6,10 @@
 
 <div class="container-fluid">
   <div class="row" id="feeds_container">
-    <%= render @feeds %>
+    <% @feeds.each do |feed| %>
+      <div id="feed_<%= feed.id %>" class="col-lg-4">
+        <%= render partial: 'feeds/feed', locals: {feed: feed} %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,4 +1,2 @@
-$("#feed-form form").remove();
-$('#feed-form a').show();
-$('#feeds_container').html("<%= j render @feed %>");
-$('#feed-form').slideDown(350);
+$('#feed_<%= @feed.id %>').html("<%= j render @feed %>");
+alert('feed updated')

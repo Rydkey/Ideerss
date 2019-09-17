@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ceci est le test technique que j'ai (Rémy RISSER) Réalisé dans le cadre d'une embauche pour le compte d'ideematic
 
-Things you may want to cover:
+Cette application est réalisée avec les technologies suivantes :
 
-* Ruby version
+* Ruby on rails 6.0.0
+* Jquery 3.4.1
+* PostgresSQL
 
-* System dependencies
+Vous trouverez également dans l'archive la configuration Docker que j'ai utilisée pour mon développement.
+J'ai utilisé l'IDE RubyMine de JetBrains. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
+ 

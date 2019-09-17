@@ -1,16 +1,16 @@
 <div id="item_<%= item.id %>">
-<ul>
-  <a href="<%= item.link %>" target="_blank" class="list-group-item
+  <ul>
+    <a href="<%= item.link %>" target="_blank" class="list-group-item
     <% unless item.read != false %>text-info
     <% end %> list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1"><%= strip_tags(item.title.truncate(25)) %></h5>
-      <small><%= item.pub_date.strftime('%d/%m/%Y') %></small>
-    </div>
-    <p class="mb-1"><%= strip_tags(item.description.truncate(150)) %></p>
-    <% unless item.read != false %>
-      <%= link_to "set to read", read_button_path(item.id), remote: true, id: "set_to_read_for_#{item.id}" %>
-    <% end %>
-  </a>
-</ul>
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= strip_tags(item.title.truncate(25)) %></h5>
+        <small><%= item.pub_date.strftime('%d/%m/%Y') %></small>
+      </div>
+      <p class="mb-1"><%= strip_tags(item.description.truncate(150)) %></p>
+      <% unless item.read != false %>
+        <%= link_to "set to read", read_button_path(item.id), remote: true, id: "set_to_read_for_#{item.id}" %>
+      <% end %>
+    </a>
+  </ul>
 </div>
