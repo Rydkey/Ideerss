@@ -1,23 +1,24 @@
 class ItemsController < ApplicationController
 
-  def index
-    @items = Item.all
-  end
-
   def show
     @item = Item.find(params[:id])
   end
 
   def set_to_read
     @item = Item.find(params[:id])
-    if @item.read == false then
-      @item.read = !@item.read
+    respond_to do |format|
+      if @item.read == false then
+        @item.read = !@item.read
+        @item.save
+        format.js
+      end
     end
+
   end
 
   private
 
-  def feed_params
-    params.require(:item).permit(:title, :description, :link, :pub_date, :read)
+  def item_params
+    params.permit(:id, :title, :description, :link, :read, :pub_date)
   end
 end

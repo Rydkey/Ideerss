@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   end
 
   resources :feeds do
-    resources :items
+    resources :items, only: [:show, :set_to_read]
   end
+
+  get '/items/:id/set_to_read', to: 'items#set_to_read', as: 'read_button'
+  get '/feeds/:id/refresh', to: 'feeds#refresh', as: 'refresh_button'
 
   root 'welcome#index'
 end

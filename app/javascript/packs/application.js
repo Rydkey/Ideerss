@@ -15,3 +15,5 @@ require("jquery");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+//Fonction utilisée pour fermer la popup et enlever la classe selected sur le lien
