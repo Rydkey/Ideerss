@@ -1,5 +1,6 @@
 <h2><a title="<%= strip_tags(feed.description.truncate(150)) %>"
        target="_blank" href="<%= feed.url %>"><%= feed.title %></a></h2>
+<small>last updated : <%= feed.updated_at.strftime('%d/%m/%Y %H:%M') %></small>
 <%= link_to "Refresh", refresh_button_path(feed.id), remote: true %>
 <div class="scroll_feed">
   <div class="list-group" id="items_container">
